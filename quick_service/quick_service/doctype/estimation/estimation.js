@@ -166,7 +166,7 @@ cur_frm.cscript.item_code = function (frm,cdt, cdn) {
 
 
         frappe.call({
-            method: "service_pro.service_pro.doctype.production.production.get_rate",
+            method: "quick_service.quick_service.doctype.production.production.get_rate",
             args: {
                 item_code: d.item_code,
                 warehouse: d.warehouse ? d.warehouse : "",

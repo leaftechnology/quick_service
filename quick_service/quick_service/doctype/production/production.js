@@ -6,7 +6,7 @@ cur_frm.cscript.qty_raw_material = function (frm,cdt,cdn) {
             var d = locals[cdt][cdn]
             if(d.production){
                 frappe.call({
-                    method: "service_pro.service_pro.doctype.production.production.get_available_qty",
+                    method: "quick_service.quick_service.doctype.production.production.get_available_qty",
                     args: {
                         production: d.production
                     },
@@ -353,7 +353,7 @@ frappe.ui.form.on('Production', {
                 console.log("NA MAN")
          if(cur_frm.doc.docstatus){
          frappe.call({
-            method: "service_pro.service_pro.doctype.production.production.get_dn_si_qty",
+            method: "quick_service.quick_service.doctype.production.production.get_dn_si_qty",
             args: {
                 item_code: cur_frm.doc.item_code_prod,
                 qty: cur_frm.doc.qty,
@@ -367,21 +367,12 @@ frappe.ui.form.on('Production', {
                 cur_frm.refresh_field("qty_for_sidn")
             }
         })}
-    // if(parseFloat(cur_frm.doc.qty_for_sidn) > 0 && parseFloat(cur_frm.doc.qty_for_sidn) < cur_frm.doc.qty && cur_frm.doc.docstatus){
-    //     console.log("NA MAN")
-    //     frappe.call({
-    //         method: "service_pro.service_pro.doctype.production.production.change_status",
-    //         args: {
-    //             name: cur_frm.doc.name
-    //         },
-    //         callback: function () {}
-    //     })
-    // }
+
      cur_frm.set_df_property("scoop_of_work", "hidden", cur_frm.doc.type === "Assemble" || cur_frm.doc.type === "Disassemble" )
         cur_frm.set_df_property("scoop_of_work_total", "hidden", cur_frm.doc.type === "Assemble" || cur_frm.doc.type === "Disassemble" )
 
         frappe.call({
-            method: "service_pro.service_pro.doctype.production.production.get_se",
+            method: "quick_service.quick_service.doctype.production.production.get_se",
             args:{
                 name: cur_frm.doc.name
             },
@@ -424,7 +415,7 @@ frappe.ui.form.on('Production', {
         if(cur_frm.doc.docstatus){
 
             frappe.call({
-                method: "service_pro.service_pro.doctype.production.production.get_jv",
+                method: "quick_service.quick_service.doctype.production.production.get_jv",
                 args: {
                     production: cur_frm.doc.name
                 },
@@ -474,7 +465,7 @@ frappe.ui.form.on('Production', {
         }
 
         frappe.call({
-                method: "service_pro.service_pro.doctype.production.production.get_se",
+                method: "quick_service.quick_service.doctype.production.production.get_se",
                 args:{
                     name: cur_frm.doc.name
                 },
@@ -519,7 +510,7 @@ frappe.ui.form.on('Production', {
                         cur_frm.set_df_property('scoop_of_work', 'read_only', 1);
 
                         frappe.call({
-                            method: "service_pro.service_pro.doctype.production.production.get_dn_or_si",
+                            method: "quick_service.quick_service.doctype.production.production.get_dn_or_si",
                             args: {
                                 name: cur_frm.doc.name,
                                 doctype: "Sales Invoice"
@@ -618,7 +609,7 @@ frappe.ui.form.on('Production', {
             })
 
             frappe.call({
-                method: "service_pro.service_pro.doctype.production.production.get_address",
+                method: "quick_service.quick_service.doctype.production.production.get_address",
                 args:{
                     customer: cur_frm.doc.customer
                 },
@@ -873,7 +864,7 @@ cur_frm.cscript.warehouse = function (frm,cdt, cdn) {
     var d = locals[cdt][cdn]
     if(d.item_code && d.warehouse){
         frappe.call({
-            method: "service_pro.service_pro.doctype.production.production.get_rate",
+            method: "quick_service.quick_service.doctype.production.production.get_rate",
             args: {
                 item_code: d.item_code,
                 warehouse: d.warehouse ? d.warehouse : "",
@@ -898,7 +889,7 @@ cur_frm.cscript.item_code = function (frm,cdt, cdn) {
     if(d.item_code){
 
         frappe.call({
-            method: "service_pro.service_pro.doctype.production.production.get_rate",
+            method: "quick_service.quick_service.doctype.production.production.get_rate",
             args: {
                 item_code: d.item_code,
                 warehouse: d.warehouse ? d.warehouse : "",
@@ -930,7 +921,7 @@ cur_frm.cscript.item_code = function (frm,cdt, cdn) {
 cur_frm.cscript.item_code_prod = function (frm,cdt, cdn) {
     if(cur_frm.doc.item_code_prod){
         frappe.call({
-            method: "service_pro.service_pro.doctype.production.production.get_uom",
+            method: "quick_service.quick_service.doctype.production.production.get_uom",
             args: {
                 item_code: cur_frm.doc.item_code_prod
             },
@@ -971,7 +962,7 @@ cur_frm.cscript.advance = function (frm,cdt, cdn) {
 
 cur_frm.cscript.journal_entry = function (frm,cdt, cdn) {
     frappe.call({
-            method: "service_pro.service_pro.doctype.production.production.get_jv",
+            method: "quick_service.quick_service.doctype.production.production.get_jv",
             args: {
                 production: cur_frm.doc.name
             },
@@ -999,7 +990,7 @@ function set_rate_and_amount(cur_frm) {
 function compute_for_selling_price(cur_frm) {
 if(cur_frm.doc.raw_material !== undefined){
     frappe.call({
-                method: "service_pro.service_pro.doctype.production.production.compute_selling_price",
+                method: "quick_service.quick_service.doctype.production.production.compute_selling_price",
                 args: {
                     raw_materials: cur_frm.doc.raw_material,
                 },
@@ -1023,7 +1014,7 @@ cur_frm.cscript.production = function (frm,cdt, cdn) {
         frappe.db.get_doc('Production', d.production)
             .then(prod => {
                 frappe.call({
-                    method: "service_pro.service_pro.doctype.production.production.get_available_qty",
+                    method: "quick_service.quick_service.doctype.production.production.get_available_qty",
                     args: {
                         production: d.production
                     },
@@ -1062,7 +1053,7 @@ function set_item_selling_price(cur_frm) {
         cur_frm.refresh_field("item_selling_price_list")
         !cur_frm.fields_dict['section_break_44'].collapse();
         frappe.call({
-            method: "service_pro.service_pro.doctype.production.production.selling_price_list",
+            method: "quick_service.quick_service.doctype.production.production.selling_price_list",
             args:{
                 raw_materials: cur_frm.doc.raw_material
             },
