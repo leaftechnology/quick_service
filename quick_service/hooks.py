@@ -1,11 +1,10 @@
-# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from . import __version__ as app_version
 
-app_name = "quick_service"
-app_title = "Quick Service"
+app_name = "service_pro"
+app_title = "Service Pro"
 app_publisher = "jan"
-app_description = "Quick Service"
+app_description = "Service Pro"
 app_icon = "octicon octicon-file-directory"
 app_color = "grey"
 app_email = "janlloydangeles@gmail.com"
@@ -15,12 +14,12 @@ app_license = "MIT"
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/quick_service/css/quick_service.css"
-# app_include_js = "/assets/quick_service/js/quick_service.js"
+# app_include_css = "/assets/service_pro/css/service_pro.css"
+# app_include_js = "/assets/service_pro/js/service_pro.js"
 
 # include js, css files in header of web template
-# web_include_css = "/assets/quick_service/css/quick_service.css"
-# web_include_js = "/assets/quick_service/js/quick_service.js"
+# web_include_css = "/assets/service_pro/css/service_pro.css"
+# web_include_js = "/assets/service_pro/js/service_pro.js"
 
 # include js, css files in header of web form
 # webform_include_js = {"doctype": "public/js/doctype.js"}
@@ -47,7 +46,7 @@ app_license = "MIT"
 # }
 
 # Website user home page (by function)
-# get_website_user_home_page = "quick_service.utils.get_home_page"
+# get_website_user_home_page = "service_pro.utils.get_home_page"
 
 # Generators
 # ----------
@@ -58,14 +57,14 @@ app_license = "MIT"
 # Installation
 # ------------
 
-# before_install = "quick_service.install.before_install"
-# after_install = "quick_service.install.after_install"
+# before_install = "service_pro.install.before_install"
+# after_install = "service_pro.install.after_install"
 
 # Desk Notifications
 # ------------------
 # See frappe.core.notifications.get_notification_config
 
-# notification_config = "quick_service.notifications.get_notification_config"
+# notification_config = "service_pro.notifications.get_notification_config"
 
 # Permissions
 # -----------
@@ -83,55 +82,109 @@ app_license = "MIT"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-#	}
-# }
+doc_events = {
+	"Sales Invoice": {
+		"on_submit": "quick_service.doc_events.sales_invoice.on_submit_si",
+		"on_cancel": "quick_service.doc_events.sales_invoice.on_cancel_si",
+	},
+    "File": {
+		"on_trash": "quick_service.doc_events.file.on_trash_f",
+	},
+    "Delivery Note": {
+		"on_submit": "quick_service.doc_events.delivery_note.change_status",
+		"on_cancel": "quick_service.doc_events.delivery_note.change_status_cancel",
+	}
+}
 
 # Scheduled Tasks
 # ---------------
 
 # scheduler_events = {
 # 	"all": [
-# 		"quick_service.tasks.all"
+# 		"service_pro.tasks.all"
 # 	],
 # 	"daily": [
-# 		"quick_service.tasks.daily"
+# 		"service_pro.tasks.daily"
 # 	],
 # 	"hourly": [
-# 		"quick_service.tasks.hourly"
+# 		"service_pro.tasks.hourly"
 # 	],
 # 	"weekly": [
-# 		"quick_service.tasks.weekly"
+# 		"service_pro.tasks.weekly"
 # 	]
 # 	"monthly": [
-# 		"quick_service.tasks.monthly"
+# 		"service_pro.tasks.monthly"
 # 	]
 # }
 
 # Testing
 # -------
 
-# before_tests = "quick_service.install.before_tests"
+# before_tests = "service_pro.install.before_tests"
 
 # Overriding Methods
 # ------------------------------
 #
 # override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "quick_service.event.get_events"
+# 	"frappe.desk.doctype.event.event.get_events": "service_pro.event.get_events"
 # }
 #
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
 # along with any modifications made in other Frappe apps
 # override_doctype_dashboards = {
-# 	"Task": "quick_service.task.get_dashboard_data"
+# 	"Task": "service_pro.task.get_dashboard_data"
 # }
 
 # exempt linked doctypes from being automatically cancelled
 #
 # auto_cancel_exempted_doctypes = ["Auto Repeat"]
 
+# fixtures = [
+#     {
+#         "doctype": "Custom Field",
+#         "filters": [
+#             [
+#                 "name",
+#                 "in",
+#                 [
+#                     "Quotation-service_receipt_note",
+#                     "Sales Invoice-production",
+#                     "Journal Entry-production",
+#                     "Stock Entry-production",
+#                     "Delivery Note-production",
+#                     "Sales Invoice-amount_in_arabic_words_",
+#                     "Sales Invoice-sales_man",
+#                     "Sales Invoice-sales_man_name",
+#                     "Sales Invoice-paid",
+#                     "Sales Invoice Item-include_discount",
+#                     "Purchase Receipt-production",
+#                     "Material Request-production",
+#                     "Delivery Note-location",
+#                     "Delivery Note-sales_man_name",
+#                     "Delivery Note-sales_man",
+#                     "Sales Invoice-showroom_card",
+#                     "Sales Invoice-showroom_cash",
+#                     "Sales Invoice-cash",
+#                     "Sales Invoice-unpaid",
+#                     "Sales Invoice-liabilities_account",
+#                     "Sales Invoice-expense_account",
+#                     "Sales Invoice-expense_cost_center",
+#                     "Sales Invoice-incentive",
+#                     "Sales Invoice-incentive_journal",
+#                     "Sales Invoice-column_break_181",
+#                     "Sales Invoice-journal_entry",
+#                     "Sales Person-liabilities_account",
+#                     "Customer-sales_man",
+#                     "Customer-sales_man_name",
+#                     "Journal Entry-agent_payment_request",
+#                     "Quotation-site_visit_report",
+#                     "Journal Entry-petty_cash_request",
+#                     "Employee-petty_cash_account",
+#                     "Sales Invoice Item-si_discount",
+#                     "Material Request-site_visit_report",
+#                 ]
+#             ]
+#         ]
+#     }
+# ]

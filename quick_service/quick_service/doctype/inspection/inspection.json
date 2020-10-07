@@ -1,0 +1,387 @@
+{
+ "actions": [],
+ "autoname": "format:{series}{YYYY}-{#####}",
+ "creation": "2020-10-01 07:00:52.266563",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "series",
+  "date",
+  "service_receipt_note",
+  "customer",
+  "customer_name",
+  "city",
+  "contact_person",
+  "telephone",
+  "fax",
+  "column_break_9",
+  "machine_type",
+  "manufacture",
+  "serial_no",
+  "power",
+  "speed",
+  "frequency",
+  "volts",
+  "current",
+  "section_break_19",
+  "item_code",
+  "item_name",
+  "column_break_17",
+  "qty",
+  "section_break_18",
+  "stator",
+  "column_break_20",
+  "thermal_protector",
+  "section_break_23",
+  "rotor_or_armature",
+  "column_break_25",
+  "bearings_and_lubricant",
+  "section_break_26",
+  "terminal_board_and_housing_or_brackets",
+  "column_break_34",
+  "housing_or_brackets",
+  "section_break_36",
+  "miscellaneous",
+  "column_break_38",
+  "missing_parts",
+  "section_break_40",
+  "scoop_of_work_and_repairing_main_punp",
+  "section_break_42",
+  "repairing_main_punp",
+  "images_section",
+  "attach_1",
+  "image_1",
+  "column_break_45",
+  "attach_2",
+  "image_2",
+  "section_break_50",
+  "terms_and_condition",
+  "letter_head",
+  "status",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "customer.customer_name",
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City"
+  },
+  {
+   "fieldname": "contact_person",
+   "fieldtype": "Data",
+   "label": "Contact Person"
+  },
+  {
+   "fieldname": "telephone",
+   "fieldtype": "Data",
+   "label": "Telephone"
+  },
+  {
+   "fieldname": "fax",
+   "fieldtype": "Data",
+   "label": "Fax"
+  },
+  {
+   "fieldname": "column_break_9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "machine_type",
+   "fieldtype": "Data",
+   "label": "Machine Type"
+  },
+  {
+   "fieldname": "manufacture",
+   "fieldtype": "Data",
+   "label": "Manufacture"
+  },
+  {
+   "fieldname": "serial_no",
+   "fieldtype": "Data",
+   "label": "Serial No."
+  },
+  {
+   "fieldname": "power",
+   "fieldtype": "Data",
+   "label": "Power"
+  },
+  {
+   "fieldname": "speed",
+   "fieldtype": "Data",
+   "label": "Speed"
+  },
+  {
+   "fieldname": "frequency",
+   "fieldtype": "Data",
+   "label": "Frequency"
+  },
+  {
+   "fieldname": "volts",
+   "fieldtype": "Data",
+   "label": "Volts"
+  },
+  {
+   "fieldname": "current",
+   "fieldtype": "Data",
+   "label": "Current"
+  },
+  {
+   "fieldname": "section_break_36",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "attach_1",
+   "fieldtype": "Attach",
+   "label": "Attach 1"
+  },
+  {
+   "fieldname": "image_1",
+   "fieldtype": "Image",
+   "label": "Image 1",
+   "options": "attach_1"
+  },
+  {
+   "fieldname": "column_break_38",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "attach_2",
+   "fieldtype": "Attach",
+   "label": "Attach 2"
+  },
+  {
+   "fieldname": "image_2",
+   "fieldtype": "Image",
+   "label": "Image 2",
+   "options": "attach_2"
+  },
+  {
+   "fieldname": "section_break_42",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "letter_head",
+   "fieldtype": "Link",
+   "label": "Letter Head",
+   "options": "Letter Head"
+  },
+  {
+   "fieldname": "series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "IR-"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "To Estimation",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Status",
+   "options": "\nClosed\nTo Estimation\nTo Production\nCompleted"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Inspection",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_18",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_20",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rotor_or_armature",
+   "fieldtype": "Table",
+   "label": "ROTOR OR ARMATURE ",
+   "options": "Road Condition"
+  },
+  {
+   "fieldname": "section_break_23",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "terminal_board_and_housing_or_brackets",
+   "fieldtype": "Table",
+   "label": "TERMINAL BOARD",
+   "options": "Road Condition"
+  },
+  {
+   "fieldname": "column_break_25",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_26",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "scoop_of_work_and_repairing_main_punp",
+   "fieldtype": "Table",
+   "label": "SCOOP OF WORK ",
+   "options": "Road Condition"
+  },
+  {
+   "fieldname": "terms_and_condition",
+   "fieldtype": "Link",
+   "label": "Terms and Condition",
+   "options": "Terms and Conditions"
+  },
+  {
+   "fieldname": "service_receipt_note",
+   "fieldtype": "Link",
+   "label": "Service Receipt Note",
+   "options": "Service Receipt Note"
+  },
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "label": "Item Code",
+   "options": "Item"
+  },
+  {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "qty",
+   "fieldtype": "Float",
+   "label": "Qty"
+  },
+  {
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "label": "Item Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_19",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "stator",
+   "fieldtype": "Table",
+   "label": "STATOR",
+   "options": "Road Condition"
+  },
+  {
+   "fieldname": "thermal_protector",
+   "fieldtype": "Table",
+   "label": "THERMAL PROTECTOR",
+   "options": "Road Condition"
+  },
+  {
+   "fieldname": "bearings_and_lubricant",
+   "fieldtype": "Table",
+   "label": "BEARINGS AND LUBRICANT",
+   "options": "Road Condition"
+  },
+  {
+   "fieldname": "column_break_34",
+   "fieldtype": "Column Break",
+   "options": "Road Condition"
+  },
+  {
+   "fieldname": "housing_or_brackets",
+   "fieldtype": "Table",
+   "label": "HOUSING OR BRACKETS",
+   "options": "Road Condition"
+  },
+  {
+   "fieldname": "miscellaneous",
+   "fieldtype": "Table",
+   "label": "MISCELLANEOUS",
+   "options": "Road Condition"
+  },
+  {
+   "fieldname": "missing_parts",
+   "fieldtype": "Table",
+   "label": "MISSING PARTS",
+   "options": "Road Condition"
+  },
+  {
+   "fieldname": "section_break_40",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_45",
+   "fieldtype": "Column Break"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "eval: !cur_frm.is_new()",
+   "fieldname": "images_section",
+   "fieldtype": "Section Break",
+   "label": "Images"
+  },
+  {
+   "fieldname": "repairing_main_punp",
+   "fieldtype": "Table",
+   "label": "REPAIRING MAIN PUNP",
+   "options": "Road Condition"
+  },
+  {
+   "fieldname": "section_break_50",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+  "modified": "2020-10-07 09:46:44.137147",
+
+ "modified_by": "Administrator",
+  "module": "Quick Service",
+ "name": "Inspection",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
