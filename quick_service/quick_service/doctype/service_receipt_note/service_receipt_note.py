@@ -13,7 +13,11 @@ class ServiceReceiptNote(Document):
 		frappe.db.commit()
 
 	def on_submit(self):
+
 		for i in self.materials:
+			i.series = i.name
+			frappe.db.sql(""" UPDATE `tabService Receipt Note Item` SET series=%s WHERE name=%s""", (i.name,i.name))
+			frappe.db.commit()
 			for ii in range(0,i.qty):
 				doc = {
 					"doctype": "Inspection",
