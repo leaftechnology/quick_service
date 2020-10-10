@@ -93,6 +93,9 @@ doc_events = {
     "Delivery Note": {
 		"on_submit": "quick_service.doc_events.delivery_note.change_status",
 		"on_cancel": "quick_service.doc_events.delivery_note.change_status_cancel",
+	},
+    "Journal Entry": {
+		"on_submit": "quick_service.doc_events.journal_entry.submit_jv",
 	}
 }
 
