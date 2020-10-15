@@ -42,6 +42,7 @@ class ServiceReceiptNote(Document):
 					"service_receipt_note": self.name
 				}
 
+
 				frappe.get_doc(doc).insert()
 
 	def submit_inspections(self):
