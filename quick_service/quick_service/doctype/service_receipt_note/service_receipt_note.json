@@ -35,7 +35,9 @@
   "term_and_condition",
   "term",
   "amended_from",
-  "status"
+  "status",
+  "section_break_31",
+  "letter_head"
  ],
  "fields": [
   {
@@ -204,11 +206,21 @@
   {
    "fieldname": "section_break_20",
    "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_31",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "letter_head",
+   "fieldtype": "Link",
+   "label": "Letter Head",
+   "options": "Letter Head"
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2020-10-09 06:55:40.127942",
+ "modified": "2020-10-16 17:02:13.753443",
  "modified_by": "Administrator",
  "module": "Quick Service",
  "name": "Service Receipt Note",

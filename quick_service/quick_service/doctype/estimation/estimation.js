@@ -242,17 +242,17 @@ cur_frm.cscript.scoop_of_work_remove = function (frm,cdt,cdn) {
 
 cur_frm.cscript.qty_raw_material = function (frm,cdt,cdn) {
     var d = locals[cdt][cdn]
-    if(d.qty_raw_material && d.qty_raw_material <= d.available_qty){
+    // if(d.qty_raw_material && d.qty_raw_material <= d.available_qty){
         d.amount_raw_material = d.rate_raw_material * d.qty_raw_material
         cur_frm.refresh_field("raw_material")
-    } else {
-        var qty = d.qty_raw_material
-        d.qty_raw_material = d.available_qty
-        d.amount_raw_material = d.rate_raw_material * d.available_qty
-        cur_frm.refresh_field("raw_material")
-        frappe.throw("Not enough stock. Can't change to " + qty.toString())
-
-    }
+    // } else {
+    //     var qty = d.qty_raw_material
+    //     d.qty_raw_material = d.available_qty
+    //     d.amount_raw_material = d.rate_raw_material * d.available_qty
+    //     cur_frm.refresh_field("raw_material")
+    //     frappe.throw("Not enough stock. Can't change to " + qty.toString())
+    //
+    // }
     compute_raw_material_total(cur_frm)
 }
 cur_frm.cscript.rate_raw_material = function (frm,cdt,cdn) {
