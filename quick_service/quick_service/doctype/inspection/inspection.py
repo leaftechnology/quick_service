@@ -35,13 +35,24 @@ class Inspection(Document):
 
 	def crop_images(self):
 		settings = frappe.get_single("Production Settings").__dict__
-		for i in range(1,3):
-			if eval("self.attach_" + str(i)):
-				im = Image.open(frappe.get_site_path() + "/public" + eval("self.attach_" + str(i)))
 
-				width, height = im.size
-				if width > settings['image_width'] and height > settings['image_height']:
-					width = settings['image_width']
-					height = settings['image_height']
-					area = im.resize((width, height))
-					area.save(frappe.get_site_path() + "/public" + eval("self.attach_" + str(i)), quality=95)
+
+		if eval("self.attach_" + str(1)):
+			im = Image.open(frappe.get_site_path() + "/public" + eval("self.attach_" + str(1)))
+
+			width, height = im.size
+			if width > settings['image_width'] and height > settings['image_height']:
+				width = settings['image_width']
+				height = settings['image_height']
+				area = im.resize((width, height))
+				area.save(frappe.get_site_path() + "/public" + eval("self.attach_" + str(1)), quality=95)
+
+		if eval("self.attach_" + str(2)):
+			im = Image.open(frappe.get_site_path() + "/public" + eval("self.attach_" + str(2)))
+
+			width, height = im.size
+			if width > settings['image_width'] and height > settings['image_height']:
+				width = settings['image_width']
+				height = settings['image_height']
+				area = im.resize((width, height))
+				area.save(frappe.get_site_path() + "/public" + eval("self.attach_" + str(2)), quality=95)
