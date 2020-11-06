@@ -178,7 +178,7 @@ cur_frm.cscript.cylinder_service = function (frm, cdt, cdn) {
                     if(cur_frm.doc.customer){
                         filters.push(["customer", "=", cur_frm.doc.customer])
                     }
-                    if(cur_frm.doc.type === 'Re-Service'){
+                    if(cur_frm.doc.type === 'Back Job'){
                         filters.push(["series", "in", ['MR-','MM-','MO-','CR-','CM-','CO-','OTH-']])
                     }
                     return {
@@ -225,7 +225,7 @@ frappe.ui.form.on('Production', {
                 cur_frm.set_df_property("scoop_of_work_total", "hidden", 0 )
 
 
-            } else if(cur_frm.doc.type && cur_frm.doc.type === "Re-Service") {
+            } else if(cur_frm.doc.type && cur_frm.doc.type === "Back Job") {
                 cur_frm.doc.estimation = ""
                 cur_frm.refresh_field("estimation")
                 frm.set_df_property('series', 'options', ['RMR-','RMR-','RMM-','RMO-','RCR-','RCM-','RCO-','ROTH-'])
@@ -471,7 +471,7 @@ frappe.ui.form.on('Production', {
                 },
                 callback: function (r) {
                     if(!r.message && generate_button && ["In Progress", "Partially Completed", "Partially Delivered"].includes(cur_frm.doc.status) && cur_frm.doc.docstatus){
-                        if(["Service", "Re-Service"].includes(cur_frm.doc.type) && cur_frm.doc.no_estimation){
+                        if(["Service", "Back Job"].includes(cur_frm.doc.type) && cur_frm.doc.no_estimation){
                                 if(cur_frm.doc.production_status === "Completed"){
                                     cur_frm.add_custom_button(__("Stock Entry"), () => {
                                          cur_frm.call({
@@ -505,7 +505,7 @@ frappe.ui.form.on('Production', {
                         }
 
 
-                    } else if(r.message && generate_button && ["In Progress", "Partially Completed", "Partially Delivered", "To Deliver", "To Bill", "To Deliver and Bill"].includes(cur_frm.doc.status) && cur_frm.doc.docstatus && cur_frm.doc.type !== "Re-Service"){
+                    } else if(r.message && generate_button && ["In Progress", "Partially Completed", "Partially Delivered", "To Deliver", "To Bill", "To Deliver and Bill"].includes(cur_frm.doc.status) && cur_frm.doc.docstatus && cur_frm.doc.type !== "Back Job"){
                         cur_frm.set_df_property('raw_material', 'read_only', 1);
                         cur_frm.set_df_property('scoop_of_work', 'read_only', 1);
 
@@ -652,7 +652,7 @@ frappe.ui.form.on('Production', {
         }
 	},
     // series: function(){
-    //     if(cur_frm.doc.series && cur_frm.doc.type === "Re-Service"){
+    //     if(cur_frm.doc.series && cur_frm.doc.type === "Back Job"){
     //         cur_frm.clear_table("linked_productions")
     //         cur_frm.refresh_field("linked_productions")
     //         cur_frm.fields_dict.linked_productions.grid.get_field("cylinder_service").get_query =
@@ -693,7 +693,7 @@ frappe.ui.form.on('Production', {
             cur_frm.set_df_property("scoop_of_work_total", "hidden", cur_frm.doc.no_estimation)
             cur_frm.set_df_property("editable_total", "hidden", cur_frm.doc.no_estimation)
 
-        } else if(cur_frm.doc.type && cur_frm.doc.type === "Re-Service") {
+        } else if(cur_frm.doc.type && cur_frm.doc.type === "Back Job") {
 
 	        cur_frm.doc.estimation = ""
             cur_frm.refresh_field("estimation")

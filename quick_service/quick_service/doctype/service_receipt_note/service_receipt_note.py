@@ -76,18 +76,19 @@ class ServiceReceiptNote(Document):
 		items = []
 		for item in self.materials:
 			inspection_values = frappe.db.get_value('Estimation',
-													{"service_receipt_note": self.name, "item_code": item.materials},
+													{"service_receipt_note": self.name, "item_code_est": item.materials},
 													['rate','amount'], as_dict=1)
 			item_record = frappe.db.sql(""" SELECT * FROM `tabItem` WHERE name=%s""", item.materials, as_dict=1)
 			print("ITEEEEEEEEEEEEM")
 			print(item_record)
+			print(inspection_values)
 			items.append({
 				"item_code": item.materials,
 				"item_name": item_record[0].item_name,
 				"description": item_record[0].description,
 				"qty": item.qty,
-				"rate": inspection_values.rate,
-				"amount": inspection_values.amount,
+				"rate": inspection_values.rate if inspection_values else 0,
+				"amount": inspection_values.amount if inspection_values else 0,
 				"uom": item_record[0].default_unit_of_measure,
 
 			})

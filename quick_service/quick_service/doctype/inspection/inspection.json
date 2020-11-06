@@ -59,7 +59,8 @@
   "terms_and_condition",
   "letter_head",
   "status",
-  "amended_from"
+  "amended_from",
+  "has_estimation"
  ],
  "fields": [
   {
@@ -355,14 +356,20 @@
   {
    "fieldname": "section_break_50",
    "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_estimation",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Has Estimation"
   }
  ],
  "is_submittable": 1,
  "links": [],
-  "modified": "2020-10-07 09:46:44.137147",
-
+ "modified": "2020-11-06 22:16:34.347010",
  "modified_by": "Administrator",
-  "module": "Quick Service",
+ "module": "Quick Service",
  "name": "Inspection",
  "owner": "Administrator",
  "permissions": [

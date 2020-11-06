@@ -34,10 +34,12 @@
   "section_break_21",
   "term_and_condition",
   "term",
+  "quotation",
   "amended_from",
   "status",
   "section_break_31",
-  "letter_head"
+  "letter_head",
+  "has_estimation"
  ],
  "fields": [
   {
@@ -216,11 +218,25 @@
    "fieldtype": "Link",
    "label": "Letter Head",
    "options": "Letter Head"
+  },
+  {
+   "fieldname": "quotation",
+   "fieldtype": "Link",
+   "label": "Quotation",
+   "options": "Quotation",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "has_estimation",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Has Estimation"
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2020-10-16 17:02:13.753443",
+ "modified": "2020-11-06 22:19:21.145147",
  "modified_by": "Administrator",
  "module": "Quick Service",
  "name": "Service Receipt Note",

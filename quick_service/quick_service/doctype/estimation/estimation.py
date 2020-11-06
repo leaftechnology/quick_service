@@ -20,6 +20,10 @@ class Estimation(Document):
 	def on_submit(self):
 		for i in self.inspections:
 			self.check_status("To Production", i.inspection)
+			frappe.db.sql(""" UPDATE `tabInspection` SET has_estimation=1 WHERE name=%s """, (i.inspection))
+			frappe.db.commit()
+		frappe.db.sql(""" UPDATE `tabService Receipt Note` SET has_estimation=1 WHERE name=%s """, (self.service_receipt_note))
+		frappe.db.commit()
 
 	def on_cancel(self):
 		for i in self.inspections:

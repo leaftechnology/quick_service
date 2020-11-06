@@ -11,6 +11,7 @@ cur_frm.cscript.inspection = function (frm, cdt, cdn) {
                     	["item_code", "=", d.item_code],
                         ["service_receipt_note", "=", cur_frm.doc.service_receipt_note],
                     	["docstatus", "=", 1],
+                    	["has_estimation", "=", 0],
                            ["status", "in", ["To Estimation", "To Production"]],
                     	["name", "not in", names]
 					]
