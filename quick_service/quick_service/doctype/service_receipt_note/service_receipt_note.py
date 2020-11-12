@@ -6,8 +6,15 @@ from __future__ import unicode_literals
 import frappe
 from frappe.model.document import Document
 from frappe.model.mapper import get_mapped_doc
-
+from datetime import datetime
 class ServiceReceiptNote(Document):
+	def validate(self):
+		for i in self.materials:
+			year = datetime.now()
+			if "WS" not in i.name:
+				print("CHANGE NAME")
+				from frappe.model.naming import make_autoname
+				i.name = make_autoname("WS-" + str(year.year) +"-.#####")
 	def change_status(self, status):
 		frappe.db.sql(""" UPDATE `tabService Receipt Note` SET status=%s WHERE name=%s """,(status, self.name))
 		frappe.db.commit()
@@ -15,6 +22,7 @@ class ServiceReceiptNote(Document):
 	def on_submit(self):
 
 		for i in self.materials:
+
 			i.series = i.name
 			frappe.db.sql(""" UPDATE `tabService Receipt Note Item` SET series=%s WHERE name=%s""", (i.name,i.name))
 			frappe.db.commit()
