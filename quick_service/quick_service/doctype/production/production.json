@@ -105,7 +105,7 @@
    "fieldname": "type",
    "fieldtype": "Select",
    "label": "Type",
-   "options": "\nService\nRe-Service",
+   "options": "\nService\nBack Job",
    "reqd": 1
   },
   {
@@ -477,11 +477,9 @@
  ],
  "is_submittable": 1,
  "links": [],
-  "modified": "2020-10-07 09:46:44.137147",
-
+ "modified": "2020-11-21 19:07:52.275962",
  "modified_by": "Administrator",
-  "module": "Quick Service",
-
+ "module": "Quick Service",
  "name": "Production",
  "owner": "Administrator",
  "permissions": [
