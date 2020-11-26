@@ -24,7 +24,13 @@ app_license = "MIT"
 # include js, css files in header of web form
 # webform_include_js = {"doctype": "public/js/doctype.js"}
 # webform_include_css = {"doctype": "public/css/doctype.css"}
-
+doctype_js = {
+    "Quotation" : "public/js/quotation.js",
+    "Sales Invoice" : "public/js/sales_invoice.js",
+    "Purchase Receipt" : "public/js/purchase_receipt.js",
+    "Material Request" : "public/js/material_request.js",
+    "Delivery Note" : "public/js/delivery_note.js",
+}
 # include js in page
 # page_js = {"page" : "public/js/file.js"}
 
