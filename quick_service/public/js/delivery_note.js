@@ -38,6 +38,7 @@ cur_frm.cscript.reference = function (frm,cdt,cdn) {
                         add = false
                     }
                 }
+
                 frappe.call({
                     method: "quick_service.quick_service.doctype.production.production.get_dn_si_qty",
                     args: {
