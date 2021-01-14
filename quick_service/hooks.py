@@ -30,6 +30,7 @@ doctype_js = {
     "Purchase Receipt" : "public/js/purchase_receipt.js",
     "Material Request" : "public/js/material_request.js",
     "Delivery Note" : "public/js/delivery_note.js",
+    "Expense Claim" : "public/js/expense_claim.js",
 }
 # include js in page
 # page_js = {"page" : "public/js/file.js"}
@@ -102,6 +103,9 @@ doc_events = {
 	},
     "Journal Entry": {
 		"on_submit": "quick_service.doc_events.journal_entry.submit_jv",
+	},
+    "Expense Claim": {
+		"validate": "quick_service.doc_events.expense_claim.validate_ec",
 	}
 }
 
@@ -197,3 +201,20 @@ doc_events = {
 #         ]
 #     }
 # ]
+fixtures = [
+    {
+        "doctype": "Custom Field",
+        "filters": [
+            [
+                "name",
+                "in",
+                [
+                    "Expense Claim-total_km",
+                    "Expense Claim-grade",
+                    "Expense Claim Type-enable_location",
+                    "Expense Claim-location",
+                ]
+            ]
+        ]
+    }
+]
