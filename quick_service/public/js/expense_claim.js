@@ -32,10 +32,10 @@ cur_frm.cscript.form_render = function () {
 	  var placesAutocomplete = places({
 		appId: 'plBBA3S4UJ7B',
 		apiKey: '0862ae80a132be1181fac98cf20ecfac',
-		container: document.querySelectorAll('[data-fieldname = "from_location"]')[4]
+		container: document.querySelectorAll('[data-fieldname = "from_location"]')[3]
 	  });
 
-	  var $address = document.querySelectorAll('[data-fieldname = "from_location"]')[4]
+	  var $address = document.querySelectorAll('[data-fieldname = "from_location"]')[3]
 	  placesAutocomplete.on('change', function(e) {
 		$address.textContent = e.suggestion.value
 	  });
@@ -48,10 +48,10 @@ $.getScript("https://cdn.jsdelivr.net/npm/places.js@1.19.0", function () {
 	  var placesAutocomplete = places({
 		appId: 'plBBA3S4UJ7B',
 		apiKey: '0862ae80a132be1181fac98cf20ecfac',
-		container: document.querySelectorAll('[data-fieldname = "to_location"]')[4]
+		container: document.querySelectorAll('[data-fieldname = "to_location"]')[3]
 	  });
 
-	  var $address = document.querySelectorAll('[data-fieldname = "to_location"]')[4]
+	  var $address = document.querySelectorAll('[data-fieldname = "to_location"]')[3]
 	  placesAutocomplete.on('change', function(e) {
 		$address.textContent = e.suggestion.value
 	  });
