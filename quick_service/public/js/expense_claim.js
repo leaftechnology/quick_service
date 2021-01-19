@@ -1,5 +1,4 @@
 
-
 cur_frm.cscript.km = function (frm, cdt, cdn) {
     var d = locals[cdt][cdn]
     if(d.km < 70){
@@ -27,15 +26,20 @@ function compute_total_km(cur_frm){
     cur_frm.refresh_field("total_km")
 }
 
-cur_frm.cscript.form_render = function () {
+cur_frm.cscript.form_render = function (frm, cdt, cdn) {
+	var from_location = frappe.meta.get_docfield("KM", "from_location", cur_frm.doc.name);
+   var to_location = frappe.meta.get_docfield("KM", "to_location", cur_frm.doc.name);
+   from_location.read_only = 0
+   to_location.read_only = 0
+	cur_frm.refresh_field("location")
     $.getScript("https://cdn.jsdelivr.net/npm/places.js@1.19.0", function () {
 	  var placesAutocomplete = places({
 		appId: 'plBBA3S4UJ7B',
 		apiKey: '0862ae80a132be1181fac98cf20ecfac',
-		container: document.querySelectorAll('[data-fieldname = "from_location"]')[3]
+		container: cur_frm.fields_dict.location.grid.open_grid_row.fields_dict.from_location.input
 	  });
 
-	  var $address = document.querySelectorAll('[data-fieldname = "from_location"]')[3]
+	  var $address = cur_frm.fields_dict.location.grid.open_grid_row.fields_dict.from_location.input
 	  placesAutocomplete.on('change', function(e) {
 		$address.textContent = e.suggestion.value
 	  });
@@ -48,10 +52,10 @@ $.getScript("https://cdn.jsdelivr.net/npm/places.js@1.19.0", function () {
 	  var placesAutocomplete = places({
 		appId: 'plBBA3S4UJ7B',
 		apiKey: '0862ae80a132be1181fac98cf20ecfac',
-		container: document.querySelectorAll('[data-fieldname = "to_location"]')[3]
+		container: cur_frm.fields_dict.location.grid.open_grid_row.fields_dict.to_location.input
 	  });
 
-	  var $address = document.querySelectorAll('[data-fieldname = "to_location"]')[3]
+	  var $address = cur_frm.fields_dict.location.grid.open_grid_row.fields_dict.to_location.input
 	  placesAutocomplete.on('change', function(e) {
 		$address.textContent = e.suggestion.value
 	  });
@@ -60,4 +64,22 @@ $.getScript("https://cdn.jsdelivr.net/npm/places.js@1.19.0", function () {
 		$address.textContent = 'none';
 	  });
 })
+}
+
+
+cur_frm.cscript.expense_type = function (frm, cdt, cdn) {
+   var d = locals[cdt][cdn]
+	if(d.expense_type){
+   		frappe.db.get_doc('Expense Claim Type', d.expense_type)
+			.then(doc => {
+					cur_frm.set_df_property("location", "reqd", doc.enable_location)
+			})
+
+	}
+}
+cur_frm.cscript.location_add = function (frm, cdt, cdn) {
+   var from_location = frappe.meta.get_docfield("KM", "from_location", cur_frm.doc.name);
+   var to_location = frappe.meta.get_docfield("KM", "to_location", cur_frm.doc.name);
+   from_location.read_only = 1
+   to_location.read_only = 1
 }
