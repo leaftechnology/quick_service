@@ -24,6 +24,7 @@ def execute(filters=None):
 		{"label": "SRN No / Job No", "fieldname": "srn_no", "fieldtype": "Data", "options": "Material Request Item", "width": "130"},
 		{"label": "Item Code", "fieldname": "item_code", "fieldtype": "Data", "options": "Material Request", "width": "110"},
 		{"label": "Item Name", "fieldname": "item_name", "fieldtype": "Data", "options": "Material Request Item", "width": "200"},
+		{"label": "Quantity", "fieldname": "qty", "fieldtype": "Data", "width": "50"},
 		{"label": "Status ", "fieldname": "status", "fieldtype": "Data", "options": "Material Request", "width": "130"},
 	]
 	query = """ SELECT 
@@ -33,7 +34,8 @@ def execute(filters=None):
 					A.srn_no,
 					A.status,
 					B.item_code,
-					B.item_name
+					B.item_name,
+					B.qty
 				FROM 
 					`tabMaterial Request` AS A,
 					`tabMaterial Request Item` AS B 
