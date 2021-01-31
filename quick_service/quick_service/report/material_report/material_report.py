@@ -9,10 +9,13 @@ def execute(filters=None):
 	conditions = ""
 
 	if filters.get("from_date") and filters.get("to_date"):
-		conditions += " and transaction_date BETWEEN '{0}' and '{1}'".format(filters.get("from_date"),filters.get("to_date"))
+		conditions += " and transaction_date BETWEEN '{0}' and '{1}' ".format(filters.get("from_date"),filters.get("to_date"))
 
 	if filters.get("customer"):
 		conditions += " and customer='{0}' ".format(filters.get("customer"))
+
+	if filters.get("name"):
+		conditions += " and name='{0}' ".format(filters.get("name"))
 
 	columns = [
 		{"label": "Posting Date", "fieldname": "transaction_date", "fieldtype": "Data", "width": "100"},

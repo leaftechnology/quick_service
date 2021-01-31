@@ -15,15 +15,15 @@ frappe.query_reports["Material Report"] = {
 			"fieldtype":"Date",
 		},
 		{
-			"fieldtype":"purchase_customer",
+			"fieldtype":"customer",
 			"label":__("Requestd Customer"),
 			"fieldtype":"Link",
 			"options": "Customer",
 		},
 		{
-			"fieldtype":"srn_no",
-			"label":__("SRN No / Job No"),
-			"fieldtype":"Data",
+			"fieldtype":"name",
+			"label":__("Material Request"),
+			"fieldtype":"Link",
 			"options": "Material Request",
 		}
 
