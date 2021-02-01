@@ -9,8 +9,7 @@
   "from_location",
   "to_location",
   "km",
-  "amount",
-  "description"
+  "amount"
  ],
  "fields": [
   {
@@ -45,13 +44,6 @@
   },
   {
    "columns": 1,
-   "fieldname": "description",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Description"
-  },
-  {
-   "columns": 1,
    "default": "0",
    "fieldname": "amount",
    "fieldtype": "Currency",
@@ -62,7 +54,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2021-01-14 14:47:58.186015",
+ "modified": "2021-01-19 21:32:24.639329",
  "modified_by": "Administrator",
  "module": "Quick Service",
  "name": "KM",
