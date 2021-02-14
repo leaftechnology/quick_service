@@ -63,7 +63,9 @@ cur_frm.cscript.unpaid = function(frm){
 
 }
 cur_frm.cscript.onload = function(frm){
-    if(cur_frm.doc.production.length > 0 && cur_frm.doc.taxes_and_charges){
+        filter_link_field(cur_frm)
+
+    if(cur_frm.doc.production && cur_frm.doc.production.length > 0 && cur_frm.doc.taxes_and_charges){
         cur_frm.trigger("taxes_and_charges")
         cur_frm.save()
     }
@@ -73,7 +75,6 @@ cur_frm.cscript.onload = function(frm){
             cur_frm.refresh_field("production")
         }
     }
-    filter_link_field(cur_frm)
 
 }
 function compute_incentives(cur_frm) {
