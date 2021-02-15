@@ -5,17 +5,7 @@ cur_frm.cscript.incentives = function(frm){
 cur_frm.cscript.sales_team_remove = function(frm){
     compute_incentives(cur_frm)
 }
-cur_frm.cscript.sales_person = function(frm,cdt, cdn){
-    var d = locals[cdt][cdn]
-    if(d.sales_person){
-        frappe.db.get_value('Sales Person', d.sales_person, "liabilities_account")
-        .then(liabilities_account => {
-            console.log(liabilities_account)
-            cur_frm.doc.liabilities_account = liabilities_account.message.liabilities_account
-        cur_frm.refresh_field("liabilities_account")
-        })
-    }
-}
+
 frappe.ui.form.on('Sales Invoice', {
     customer: function(frm){
 
