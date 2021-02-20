@@ -145,7 +145,8 @@ class Production(Document):
 				'qty': self.qty,
 				'uom': self.umo,
 				'basic_rate': self.rate,
-				'cost_center': self.cost_center
+				'cost_center': self.cost_center,
+				"analytic_account": self.analytic_account
 			}],
 		}
 		frappe.get_doc(doc_se1).insert(ignore_permissions=1).submit()
@@ -231,7 +232,8 @@ class Production(Document):
 				'qty': item.qty_raw_material,
 				'uom': "Nos",
 				'basic_rate': item.rate_raw_material,
-				'cost_center': item.cost_center
+				'cost_center': item.cost_center,
+				"analytic_account": self.analytic_account
 			})
 
 		items.append({
@@ -241,6 +243,7 @@ class Production(Document):
 			'uom': self.umo,
 			'basic_rate': self.rate,
 			'cost_center': self.cost_center,
+			"analytic_account": self.analytic_account
 		})
 		return items
 
@@ -254,7 +257,8 @@ class Production(Document):
 				'qty': item.qty_raw_material,
 				'uom': "Nos",
 				'basic_rate': item.rate_raw_material,
-				'cost_center': item.cost_center
+				'cost_center': item.cost_center,
+				"analytic_account": self.analytic_account
 			})
 		return items
 
@@ -269,7 +273,8 @@ class Production(Document):
 					'qty': item.qty_raw_material,
 					'uom': "Nos",
 					'basic_rate': item.rate_raw_material,
-					'cost_center': item.cost_center
+					'cost_center': item.cost_center,
+					"analytic_account": self.analytic_account
 				})
 
 		items.append({
@@ -278,7 +283,8 @@ class Production(Document):
 			'qty': self.qty,
 			'uom': self.umo,
 			'basic_rate': self.rate,
-			'cost_center': self.cost_center
+			'cost_center': self.cost_center,
+			"analytic_account": self.analytic_account
 		})
 		return items
 	def get_si_items(self, type, qty):
