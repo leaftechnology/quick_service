@@ -67,9 +67,10 @@
   },
   {
    "fieldname": "customer",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Customer",
+   "options": "Customer",
    "reqd": 1
   },
   {
@@ -235,7 +236,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2021-02-17 20:53:58.725662",
+ "modified": "2021-02-23 19:06:40.998786",
  "modified_by": "Administrator",
  "module": "Quick Service",
  "name": "Service Receipt Note",
