@@ -6,7 +6,13 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "analytic_account"
+  "analytic_account",
+  "disabled",
+  "lft",
+  "rgt",
+  "is_group",
+  "old_parent",
+  "parent_analytic_account"
  ],
  "fields": [
   {
@@ -16,14 +22,56 @@
    "label": "Analytic Account",
    "reqd": 1,
    "unique": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "disabled",
+   "fieldtype": "Check",
+   "label": "Disabled"
+  },
+  {
+   "fieldname": "lft",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Left",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "rgt",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Right",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_group",
+   "fieldtype": "Check",
+   "label": "Is Group"
+  },
+  {
+   "fieldname": "old_parent",
+   "fieldtype": "Link",
+   "label": "Old Parent",
+   "options": "Analytic Account"
+  },
+  {
+   "fieldname": "parent_analytic_account",
+   "fieldtype": "Link",
+   "label": "Parent Analytic Account",
+   "options": "Analytic Account"
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_tree": 1,
  "links": [],
- "modified": "2021-02-20 13:04:15.554332",
+ "modified": "2021-02-27 17:14:58.973392",
  "modified_by": "Administrator",
  "module": "Quick Service",
  "name": "Analytic Account",
+ "nsm_parent_field": "parent_analytic_account",
  "owner": "Administrator",
  "permissions": [
   {
@@ -41,6 +89,5 @@
  ],
  "quick_entry": 1,
  "sort_field": "modified",
- "sort_order": "DESC",
- "track_changes": 1
+ "sort_order": "DESC"
 }
