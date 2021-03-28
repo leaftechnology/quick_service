@@ -64,7 +64,7 @@
    "fieldname": "rate_of_materials_based_on",
    "fieldtype": "Select",
    "label": "Rate of Materials Based On",
-   "options": "\nValuation Rate\nPrice List"
+   "options": "\nValuation Rate\nPrice List\nLast Purchase Rate"
   },
   {
    "depends_on": "eval: doc.rate_of_materials_based_on == \"Price List\"",
@@ -95,13 +95,12 @@
    "label": "Mandatory Additional Cost in Quick Service"
   }
  ],
+ "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
-  "modified": "2020-10-07 09:46:44.137147",
-
+ "modified": "2021-03-28 11:07:10.048703",
  "modified_by": "Administrator",
-  "module": "Quick Service",
-
+ "module": "Quick Service",
  "name": "Production Settings",
  "owner": "Administrator",
  "permissions": [

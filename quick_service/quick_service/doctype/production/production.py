@@ -362,6 +362,13 @@ def get_rate(item_code, warehouse, based_on,price_list):
 			item_code, as_dict=1)
 		rate = item_price[0].valuation_rate if len(item_price) > 0 else 0
 
+	if based_on == "Last Purchase Rate":
+		print("WALA DIR")
+		item_price = frappe.db.sql(
+			""" SELECT * FROM `tabItem` WHERE item_code=%s""",
+			item_code, as_dict=1)
+		rate = item_price[0].last_purchase_rate if len(item_price) > 0 else 0
+
 	return rate, balance
 
 @frappe.whitelist()
