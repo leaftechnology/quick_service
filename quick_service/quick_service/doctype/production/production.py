@@ -243,6 +243,7 @@ class Production(Document):
 			'uom': self.umo,
 			'basic_rate': self.rate,
 			'cost_center': self.cost_center,
+			'is_finished_item': 1,
 			"analytic_account": self.analytic_account
 		})
 		return items
@@ -357,17 +358,17 @@ def get_rate(item_code, warehouse, based_on,price_list):
 	print(based_on)
 	if based_on == "Valuation Rate":
 		print("WALA DIR")
-		item_price = frappe.db.sql(
+		item_record = frappe.db.sql(
 			""" SELECT * FROM `tabItem` WHERE item_code=%s""",
 			item_code, as_dict=1)
-		rate = item_price[0].valuation_rate if len(item_price) > 0 else 0
+		rate = item_record[0].valuation_rate if len(item_record) > 0 else 0
 
 	if based_on == "Last Purchase Rate":
 		print("WALA DIR")
-		item_price = frappe.db.sql(
+		item_record = frappe.db.sql(
 			""" SELECT * FROM `tabItem` WHERE item_code=%s""",
 			item_code, as_dict=1)
-		rate = item_price[0].last_purchase_rate if len(item_price) > 0 else 0
+		rate = item_record[0].last_purchase_rate if len(item_record) > 0 else 0
 
 	return rate, balance
 

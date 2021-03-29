@@ -398,7 +398,7 @@ frappe.ui.form.on('Production', {
         cur_frm.set_query('expense_ledger',"additional_cost", () => {
             return {
                 filters: [
-                        ["account_type", "in", ["Expense Account"]]
+                        ["account_type", "in", ["Expenses Included In Valuation"]]
                     ]
             }
         })
