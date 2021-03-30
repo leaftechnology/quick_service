@@ -221,6 +221,7 @@ class Production(Document):
 				'is_advance': "Yes",
 			})
 		print(accounts)
+
 		return accounts
 	def get_manufacture_se_items(self):
 		items = []
