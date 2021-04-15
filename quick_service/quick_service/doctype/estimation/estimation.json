@@ -166,7 +166,7 @@
    "fieldname": "rate_of_materials_based_on",
    "fieldtype": "Select",
    "label": "Rate of Materials based on",
-   "options": "\nValuation Rate\nPrice List"
+   "options": "\nValuation Rate\nPrice List\nLast Purchase Rate"
   },
   {
    "depends_on": "eval: doc.rate_of_materials_based_on == \"Price List\"",
@@ -325,9 +325,10 @@
    "options": "Service Receipt Note"
   }
  ],
+ "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2020-10-15 19:54:39.334069",
+ "modified": "2021-04-15 13:40:20.774537",
  "modified_by": "Administrator",
  "module": "Quick Service",
  "name": "Estimation",
