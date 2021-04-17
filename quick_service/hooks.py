@@ -31,6 +31,7 @@ doctype_js = {
     "Material Request" : "public/js/material_request.js",
     "Delivery Note" : "public/js/delivery_note.js",
     "Expense Claim" : "public/js/expense_claim.js",
+    "Global Defaults": "public/js/global_defaults.js"
 }
 # include js in page
 # page_js = {"page" : "public/js/file.js"}
@@ -106,6 +107,10 @@ doc_events = {
 	},
     "Expense Claim": {
 		"validate": "quick_service.doc_events.expense_claim.validate_ec",
+	},
+    "Sales Order": {
+		"on_submit": "libra.doc_events.sales_order.submit_so",
+		"on_cancel": "libra.doc_events.sales_order.cancel_so",
 	}
 }
 
@@ -213,6 +218,7 @@ fixtures = [
                     "Expense Claim-grade",
                     "Expense Claim Type-enable_location",
                     "Expense Claim-location",
+                    "Global Defaults-default_cost_center",
                 ]
             ]
         ]
