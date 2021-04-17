@@ -109,8 +109,8 @@ doc_events = {
 		"validate": "quick_service.doc_events.expense_claim.validate_ec",
 	},
     "Sales Order": {
-		"on_submit": "libra.doc_events.sales_order.submit_so",
-		"on_cancel": "libra.doc_events.sales_order.cancel_so",
+		"on_submit": "quick_service.doc_events.sales_order.submit_so",
+		"on_cancel": "quick_service.doc_events.sales_order.cancel_so",
 	}
 }
 
