@@ -38,7 +38,6 @@
   "amount",
   "income_account",
   "cost_center",
-  "analytic_account",
   "section_break_21",
   "scoop_of_work",
   "section_break111",
@@ -474,18 +473,12 @@
    "fieldname": "no_estimation",
    "fieldtype": "Check",
    "label": "No Estimation"
-  },
-  {
-   "fieldname": "analytic_account",
-   "fieldtype": "Link",
-   "label": "Analytic Account",
-   "options": "Analytic Account"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2021-03-28 11:10:08.126929",
+ "modified": "2021-04-17 19:55:46.595342",
  "modified_by": "Administrator",
  "module": "Quick Service",
  "name": "Production",
