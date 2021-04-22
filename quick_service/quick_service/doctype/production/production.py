@@ -128,7 +128,7 @@ class Production(Document):
 				"items": self.get_manufacture_se_items() if self.type == "Assemble" or self.type == "Service"  else self.get_material_issue_se_items() if self.type == "Re-Service" else self.get_repack_se_items(),
 				"production": self.name,
 				"additional_costs": self.get_additional_costs(),
-				"analytic_account": self.analytic_account
+				"analytic_account": self.analytic_account if self.analytic_account else ""
 			}
 			frappe.get_doc(doc_se).insert(ignore_permissions=1).submit()
 
