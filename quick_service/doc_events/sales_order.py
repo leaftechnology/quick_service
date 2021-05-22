@@ -15,7 +15,6 @@ def submit_so(doc, method):
 
 
 def cancel_so(doc, method):
-
-    frappe.db.sql(""" DELETE FROM `tabCost Center` WHERE sales_order=%s """,doc.name)
+    frappe.db.sql(""" DELETE FROM `tabCost Center` WHERE cost_center_name=%s """,doc.name)
     frappe.db.commit()
 
